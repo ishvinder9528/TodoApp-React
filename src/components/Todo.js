@@ -1,23 +1,15 @@
 import React from "react";
-
-const Todo = (props) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+export const Todo = ({ task,deleteTodo }) => {
   return (
-    <p>
-      {props.todo.task}
-      <span>
-        <button>Edit</button>
-      </span>
-      <span>
-        <button
-          onClick={() => {
-            console.log(props.todo.task);
-          }}
-        >
-          Delete
-        </button>
-      </span>
-    </p>
+    <div className="Todo">
+      <p>{task.task}</p>
+      <div>
+        <FontAwesomeIcon onClick={deleteTodo} icon={faPenToSquare} />
+        <FontAwesomeIcon icon={faTrash} />
+      </div>
+    </div>
   );
 };
-
-export default Todo;
